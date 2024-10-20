@@ -35,30 +35,63 @@
 <body data-gr-c-s-loaded="true">
 
 <!-- ======= Portfolio Details ======= -->
-  <main id="main">
-    <div id="portfolio-details" class="portfolio-details">
-      <div class="container">
+<main id="main">
+  <div id="portfolio-details" class="portfolio-details">
+    <div class="container">
 
-        <div class="row">
+      <div class="row">
 
-          <div class="col-lg-12 portfolio-info">
-            <br>
-            <h2 style="color:#12d640">End-to-End Hybrid Data Replication Solution</h2>
+        <div class="col-lg-12 portfolio-info">
+          <br>
+          <h2 style="color:#12d640">BookStream: Real-Time Goodreads Data Pipeline</h2>
+          <a href="https://github.com/savarchaturvedi/good_read_data_infrastructure.git" target="_blank" style="color:#12d640; text-decoration: underline;">Project Link</a>
 
-            <ul>
-              <li><strong>Tech Stack</strong>:Amazon Web Services (AWS), Ansible, Microsoft Azure Skill, Terraform</li>
-            </ul>
+          <ul>
+            <li><strong>Tech Stack</strong>: Python, Apache Spark, Airflow, SQL, ETL, Amazon Web Services (AWS)</li>
+          </ul>
 
-            <p>
-              Revolutionizing InfoScale deployment, our project combines the power of Terraform and Ansible for a one-click, end-to-end solution. Achieving a 15% reduction in deployment time, we automate cloud infrastructure setup on AWS and Azure, seamlessly orchestrating InfoScale installation and configuration. Users benefit from a streamlined process with easy configuration via a single variable file, ensuring efficiency, simplicity, and precision in every deployment.
-            </p>
+          <!-- Add image here -->
+          <div style="text-align: center;">
+            <img src="../assets/img/project/data_arch.png" alt="Data Architecture" style="max-width:100%; height:auto;">
           </div>
 
+          <p>
+            GoodReads Data Pipeline Project Description
+            The GoodReads Data Pipeline is an end-to-end data processing and analytics solution designed to capture, transform, and store data from the Goodreads API in real time. The pipeline is divided into several key modules, including a Goodreads Python Wrapper, ETL Jobs, a Redshift Warehouse Module, and an Analytics Module. Below is an overview of how the pipeline operates:
+          </p>
+
+          <p>
+            Overview
+            Data Capture: Data is extracted in real time using the Goodreads Python Wrapper from the Goodreads API. The collected data is initially stored on local disk and then periodically moved to an AWS S3 Landing Bucket.
+            ETL Jobs: The pipeline’s ETL (Extract, Transform, Load) jobs, written in Apache Spark, are scheduled using Airflow to run every 10 minutes, ensuring that data is continuously processed and updated.
+          </p>
+
+          <p>
+            ETL Flow
+            Landing Zone: Data from the Goodreads API is moved to an S3 bucket (Landing Zone).
+            Working Zone: The ETL job's S3 module transfers data from the Landing Zone to the Working Zone.
+            Data Transformation: A Spark job is triggered, reading the data from the Working Zone and applying necessary transformations. The dataset is then repartitioned and moved to the Processed Zone on S3.
+            Data Warehouse Loading: The Redshift Warehouse Module loads data from the Processed Zone into Redshift staging tables. Using UPSERT operations, the data in the staging tables is used to update the final tables in the Data Warehouse.
+            ETL Job Completion: The ETL job completes once the Data Warehouse is updated with the processed data.
+          </p>
+
+          <p>
+            Airflow DAG & Analytics
+            Once the ETL job is complete, Airflow DAG triggers a data quality check on all the Data Warehouse tables to ensure data integrity.
+            The pipeline also includes an Analytics Module, where custom Airflow Operators run predefined analytics queries. A final data quality check is performed on select analytics tables before DAG execution is marked complete.
+          </p>
+
+          <p>
+            This pipeline ensures reliable, real-time data ingestion, transformation, and analytics processing, leveraging AWS infrastructure, Spark, and Airflow for efficient data operations.
+          </p>
         </div>
 
       </div>
-    </div><!-- End Portfolio Details -->
-  </main><!-- End #main -->
+
+    </div>
+  </div><!-- End Portfolio Details -->
+</main><!-- End #main -->
+
 
  <!-- Vendor JS Files -->
   <script async="" src="//www.google-analytics.com/analytics.js"></script><script src="assets/vendor/jquery/jquery.min.js"></script>
