@@ -48,15 +48,32 @@
                 Enhanced Satellite Positioning</h2>
   
               <ul>
-                <li><strong>Tech Stack</strong>: Python, Pandas, NumPy, Scikit-learn, Spark, HPC</li>
-                <li><strong>Github URL</strong>: <a href="https://github.com/Manvipandya/RBDA_Satellite_Orbit_Positioning" target="_blank">Project Link</a></li>
+                <li><strong>Tech Stack</strong>: Python, Pandas, NumPy, Scikit-learn, Terraform, SQLite, AWS lamba, AWS S3, Perfect, SQL </li>
+                <li><strong>Github URL</strong>: <a href="https://github.com/savarchaturvedi/mlops_city_biky.git" target="_blank">Project Link</a></li>
               </ul>
-  
-            <p>Engineered predictive models for atmospheric conditions, achieving up to 15% fuel savings for satellites.</p>
-            <p>Developed and deployed Python scripts to automate data collection and preprocessing for ETL processes, reducing
-                deployment time by 50% and improving workflow efficiency.</p>
-            <p>Designed and implemented a robust monitoring and alerting system to track satellite performance, ensuring timely
-                interventions leading to minimized operational disruptions and saved up to 15% fuel for satellites.</p>
+              <p>
+                This model is built to predict ride patterns using Capital Bikeshare data. The pipeline handles data preprocessing, training, and validation using historical data. Key metrics like RMSE or accuracy are tracked through MLflow, ensuring a robust model performance. The model’s training and validation stages are run on local data with experiment tracking managed by MLflow, enabling comparison across multiple models.
+
+
+              </p>
+              <p>
+                MLOps Pipeline
+
+                <p>
+                  The MLOps pipeline automates the end-to-end workflow using Prefect for orchestration and MLflow for tracking. Key components include:
+
+                  Prefect: Automates scheduling and running of tasks, from data preprocessing to model deployment.
+
+                  MLflow: Tracks model parameters, metrics, and artifacts, storing them in AWS S3.
+
+                  AWS S3: Stores model artifacts during experimentation and model tracking.
+
+                </p>
+              </p>
+              <div style="text-align: center;">
+                <img src="../assets/img/project/M1.png" alt="Data Architecture" style="max-width:100%; height:auto;">
+                <img src="../assets/img/project/M2.png" alt="Data Architecture" style="max-width:100%; height:auto;">
+              </div>
   
             </div>
   
